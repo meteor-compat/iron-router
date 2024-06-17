@@ -1,0 +1,53 @@
+local PickupManager = {}
+
+local defaultMultiplier = 1.25
+local rarityMultipliers = {
+  common = 10,
+  uncommon = 20,
+  rare = 50,
+  legendary = 100
+}
+
+-- Add the getPickupBonus function to the PickupManager module table
+function PickupManager.getPickupBonus(rarity)
+  local bonus = rarityMultipliers[rarity] * defaultMultiplier
+  return bonus
+end
+
+return PickupManager
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+-- Get value returned by ModuleScript
+local PickupManager = require(ReplicatedStorage:WaitForChild("PickupManager"))
+
+-- Call a ModuleScript function
+local bonus = PickupManager.getPickupBonus("legendary")
+print(bonus)  --> 125
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+-- Get the return value for the ModuleScript named "PickupManager"
+local PickupManager = require(ReplicatedStorage:WaitForChild("
+local GunConfig = {}
+
+GunConfig.MagazineSize = 20
+GunConfig.AmmoCount = 100
+GunConfig.Firerate = 600
+GunConfig.Damage = {
+	["Head"] = 50;
+	["Torso"] = 40;
+	["Body"] = 25;
+}
+local Switch = {}
+
+-- Creating bindable so any script can listen to when the switch was changed
+local bindableEvent = Instance.new("BindableEvent")
+Switch.Changed = bindableEvent.Event
+
+local state = false
+function Switch.flip()
+	state = not state
+	bindableEvent:Fire(state)
+end
+
+return Switch
+return GunConfig
